@@ -1,7 +1,7 @@
 /**
  * DonationTransparency — Affiche le solde total des dons BTC
  *
- * Derive les 20 premieres adresses de reception depuis la zpub,
+ * Derive les premieres adresses de reception depuis la zpub,
  * interroge mempool.space pour les soldes, et affiche le total en BTC + EUR.
  */
 import { useState, useEffect, useCallback, useRef } from 'react';
@@ -14,7 +14,7 @@ import {
 const BTC_ZPUB =
   'zpub6nX21p4t5H6gxUMqQXC2jRQtejWFWa6dMnZH7aENX8Z1LrzRUpJtpN4fT1AwTxYndj1o9oCtUp6fHcmvA14L4vDNRHkzQxf471e9osTyHGd';
 
-const ADDRESS_COUNT = 20;
+const ADDRESS_COUNT = 5;
 
 /** Cache duration: 5 minutes */
 const CACHE_TTL_MS = 5 * 60 * 1000;

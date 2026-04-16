@@ -8,7 +8,7 @@
 const MEMPOOL_API = 'https://mempool.space/api';
 
 /** Delay between sequential address queries (ms) */
-const REQUEST_DELAY_MS = 200;
+const REQUEST_DELAY_MS = 1000;
 
 /** Max retries on 429 Too Many Requests */
 const MAX_RETRIES = 3;
