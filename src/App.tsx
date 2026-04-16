@@ -10,6 +10,7 @@ import ComparatifOutils from './components/pages/ComparatifOutils';
 import Guide3916bis from './components/pages/Guide3916bis';
 import Simulateur from './components/pages/Simulateur';
 import FreshnessCheck from './components/FreshnessCheck';
+import DonationTransparency from './components/DonationTransparency';
 import { FIFOCalculator, generateTaxSummary } from './engine/calculator/fifo';
 import { exportTaxReportPDF } from './engine/export/pdf';
 import { prefetchPrices } from './engine/prices';
@@ -255,9 +256,10 @@ function App() {
       <footer className="border-t border-gray-800 mt-auto">
         <div className="max-w-5xl mx-auto px-6 py-8 space-y-6">
           {/* Donation */}
-          <div className="flex flex-col items-center gap-2 pb-6 border-b border-gray-800">
+          <div className="flex flex-col items-center gap-3 pb-6 border-b border-gray-800">
             <p className="text-xs text-gray-500">Projet gratuit et open-source — soutenir le developpement</p>
             <DonationAddress />
+            <DonationTransparency />
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
