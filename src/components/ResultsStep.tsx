@@ -345,7 +345,7 @@ function EventRow({ event, onPriceChange }: { event: TaxableEvent; onPriceChange
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(event.unitPriceEUR.toFixed(2));
 
-  const sourceColor = event.priceSource === 'coingecko' ? 'bg-blue-500' : event.priceSource === 'manual' ? 'bg-amber-500' : 'bg-gray-500';
+  const sourceColor = event.priceSource === 'api' ? 'bg-blue-500' : event.priceSource === 'manual' ? 'bg-amber-500' : 'bg-gray-500';
 
   const handleSubmit = () => {
     const newPrice = parseFloat(editValue);

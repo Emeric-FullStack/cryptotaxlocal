@@ -1,12 +1,11 @@
 import { useState, useRef, useCallback, useMemo } from 'react';
-import { FRANCE_TAX_RULES, calculateFlatTax, calculateProgressiveTax, formatEUR } from '../../engine/tax-rules/france';
+import { calculateFlatTax, calculateProgressiveTax, formatEUR } from '../../engine/tax-rules/france';
 
 interface Props {
   onBack: () => void;
 }
 
 export default function Simulateur({ onBack }: Props) {
-  const [investAmount, setInvestAmount] = useState(10000);
   const [gainAmount, setGainAmount] = useState(5000);
   const [otherIncome, setOtherIncome] = useState(25000);
   const [totalProceeds, setTotalProceeds] = useState(15000);
