@@ -80,11 +80,11 @@ function parseCoinbaseRow(row: Record<string, string>, index: number): Transacti
 
   if (!asset || quantity === 0) return null;
 
-  let type: 'buy' | 'sell' | 'staking_reward' | 'airdrop' = 'buy';
+  let type: 'buy' | 'sell' | 'staking_reward' | 'airdrop';
   let receivedAsset = asset;
   let receivedAmount = quantity;
   let sentAsset = currency;
-  let sentAmount = total; // Pour les achats : montant total paye (TTC)
+  let sentAmount: number;
 
   switch (txType) {
     case 'buy':

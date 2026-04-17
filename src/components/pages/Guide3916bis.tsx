@@ -1,7 +1,69 @@
+import { useDocumentMeta } from '../../hooks/useDocumentMeta';
+import { useStructuredData } from '../../hooks/useStructuredData';
+
 interface Props {
   onBack: () => void;
   onGoToTool: () => void;
 }
+
+/**
+ * HowTo schema for the 3916-bis step-by-step procedure. Helps Google show
+ * a numbered "how-to" rich snippet in search results.
+ */
+const HOWTO_3916_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Comment declarer ses comptes crypto a l\'etranger avec le formulaire 3916-bis',
+  description: "Procedure pas-a-pas pour declarer vos comptes Binance, Kraken, Coinbase, KuCoin ou autres exchanges etrangers via le formulaire 3916-bis en 2026.",
+  totalTime: 'PT15M',
+  estimatedCost: {
+    '@type': 'MonetaryAmount',
+    currency: 'EUR',
+    value: '0',
+  },
+  supply: [
+    {
+      '@type': 'HowToSupply',
+      name: 'Identifiants de chaque exchange (email, date d\'ouverture du compte)',
+    },
+    {
+      '@type': 'HowToSupply',
+      name: "Numero fiscal et acces a votre espace particulier sur impots.gouv.fr",
+    },
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Lister tous vos comptes crypto etrangers',
+      text: "Recensez tous les exchanges non francais ou vous avez ouvert un compte : Binance, Kraken, Coinbase, KuCoin, Bybit, Bitstamp, Revolut (section crypto), etc. Meme les comptes clotures dans l'annee doivent etre declares.",
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Se connecter a impots.gouv.fr',
+      text: "Connectez-vous a votre espace particulier sur impots.gouv.fr avec votre numero fiscal et mot de passe, puis accedez a la declaration de revenus en ligne.",
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Ajouter l\'annexe 3916-bis',
+      text: "Dans la section \"Declarations annexes\", cochez la case \"Compte d'actifs numeriques ouvert, detenu, utilise ou clos a l'etranger (formulaire 3916 bis)\". Un formulaire 3916-bis doit etre rempli par compte.",
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Remplir les informations par compte',
+      text: "Pour chaque compte : designation (nom de l'exchange), identifiant du compte (email d'inscription), adresse de l'organisme (siege social), date d'ouverture, date de cloture si applicable, et cochez les cases \"usage personnel\" et \"titulaire\".",
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Valider et conserver l\'accuse de reception',
+      text: "Validez la declaration et conservez l'accuse de reception. En cas de controle, c'est votre preuve de depot. L'amende pour non-declaration est de 750 EUR par compte (1 500 EUR si le solde depasse 50 000 EUR).",
+    },
+  ],
+};
 
 /**
  * Article SEO : Guide formulaire 3916-bis
@@ -14,6 +76,13 @@ interface Props {
  * - "declaration compte actifs numeriques"
  */
 export default function Guide3916bis({ onBack, onGoToTool }: Props) {
+  useDocumentMeta({
+    title: 'Formulaire 3916-bis crypto — Declarer ses comptes a l\'etranger (2026) | CryptoTaxLocal',
+    description: "Comment remplir le formulaire 3916-bis pour declarer vos comptes Binance, Kraken, Coinbase, KuCoin ? Amendes, obligations, exemples pas-a-pas pour la declaration 2026.",
+    canonical: 'https://cryptotaxlocal.com/declaration-3916-bis',
+  });
+  useStructuredData('howto-3916bis', HOWTO_3916_SCHEMA);
+
   return (
     <div className="max-w-3xl mx-auto">
       <button onClick={onBack} className="text-sm text-blue-400 hover:text-blue-300 mb-6 flex items-center gap-1">

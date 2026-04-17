@@ -1,0 +1,4 @@
+# Cloudflare Pages SPA fallback:
+# all client-side routes must serve index.html so React Router can take over.
+# Assets (with a dot in the path) are served normally by Pages.
+/*    /index.html   200

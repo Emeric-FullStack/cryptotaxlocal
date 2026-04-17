@@ -124,7 +124,7 @@ export default function ImportStep({ onImport, onGoToSimulator }: Props) {
               <p className="text-sm text-gray-500 mt-1">ou cliquez pour parcourir</p>
             </div>
             <div className="flex gap-2 mt-2">
-              {['Binance', 'Kraken', 'Coinbase'].map((ex) => (
+              {['Binance', 'Kraken', 'Coinbase', 'Revolut'].map((ex) => (
                 <span key={ex} className="px-2 py-1 text-xs rounded bg-gray-800 text-gray-400 border border-gray-700">
                   {ex}
                 </span>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CryptoTaxLocal — Calculateur fiscal crypto 100% local</title>
-    <meta name="description" content="Calculez vos impots crypto gratuitement. 100% dans votre navigateur, sans inscription, sans upload. Flat tax 31,4% (PFU 2026), Art. 150 VH bis, export PDF formulaire 2086. Binance, Kraken, Coinbase." />
+    <meta name="description" content="Calculez vos impots crypto gratuitement. 100% dans votre navigateur, sans inscription, sans upload. Flat tax 31,4% (PFU 2026), Art. 150 VH bis, export PDF formulaire 2086. Binance, Kraken, Coinbase, Revolut." />
 
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
@@ -29,12 +29,87 @@
     <meta property="og:url" content="https://cryptotaxlocal.com" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="CryptoTaxLocal" />
+    <meta property="og:image" content="https://cryptotaxlocal.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CryptoTaxLocal — Calculateur d'impots crypto 100% local, gratuit, open source" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CryptoTaxLocal — Calculateur fiscal crypto gratuit" />
     <meta name="twitter:description" content="Calculez vos impots crypto gratuitement, 100% dans votre navigateur. PFU 31,4%, export PDF 2086." />
+    <meta name="twitter:image" content="https://cryptotaxlocal.com/og-image.png" />
+    <meta name="twitter:image:alt" content="CryptoTaxLocal — Calculateur d'impots crypto 100% local, gratuit, open source" />
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="calculateur impot crypto France, flat tax crypto 31.4%, PFU 2026, formulaire 2086, declaration crypto, plus-value crypto, Binance impot, fiscalite crypto France" />
     <link rel="canonical" href="https://cryptotaxlocal.com" />
+
+    <!-- Structured data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://cryptotaxlocal.com/#app",
+          "name": "CryptoTaxLocal",
+          "url": "https://cryptotaxlocal.com",
+          "applicationCategory": "FinanceApplication",
+          "applicationSubCategory": "TaxPreparationApplication",
+          "operatingSystem": "Web",
+          "browserRequirements": "Requires JavaScript and a modern browser (Chrome, Firefox, Safari, Edge)",
+          "description": "Calculateur fiscal crypto 100% local pour la declaration francaise. Applique la formule exacte de l'article 150 VH bis du CGI (PA global decremente). PFU 31,4% ou bareme progressif. Binance, Kraken, Coinbase. Aucune donnee envoyee a un serveur.",
+          "inLanguage": "fr-FR",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "featureList": [
+            "Import CSV Binance, Kraken, Coinbase (auto-detection)",
+            "Formule francaise exacte Article 150 VH bis CGI",
+            "PFU 31,4% ou bareme progressif (comparaison)",
+            "Prix historiques via API Binance (illimite)",
+            "Frais d'exchange et gas fees deduits (BOFIP)",
+            "Export PDF formulaire 2086 (cases 3AN, 3BN, 3CN)",
+            "PWA installable (fonctionne hors-ligne)",
+            "Open source MIT, zero tracking, zero upload"
+          ],
+          "license": "https://opensource.org/licenses/MIT",
+          "softwareVersion": "1.0",
+          "image": "https://cryptotaxlocal.com/og-image.png",
+          "screenshot": "https://cryptotaxlocal.com/og-image.png",
+          "author": {
+            "@id": "https://cryptotaxlocal.com/#org"
+          },
+          "publisher": {
+            "@id": "https://cryptotaxlocal.com/#org"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://cryptotaxlocal.com/#org",
+          "name": "CryptoTaxLocal",
+          "url": "https://cryptotaxlocal.com",
+          "logo": "https://cryptotaxlocal.com/icon-512.png",
+          "sameAs": [
+            "https://github.com/Emeric-FullStack/cryptotaxlocal"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cryptotaxlocal.com/#website",
+          "url": "https://cryptotaxlocal.com",
+          "name": "CryptoTaxLocal",
+          "description": "Calculateur fiscal crypto gratuit, open source et 100% local pour la declaration francaise",
+          "inLanguage": "fr-FR",
+          "publisher": {
+            "@id": "https://cryptotaxlocal.com/#org"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

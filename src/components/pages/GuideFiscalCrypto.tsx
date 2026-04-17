@@ -1,7 +1,78 @@
+import { useDocumentMeta } from '../../hooks/useDocumentMeta';
+import { useStructuredData } from '../../hooks/useStructuredData';
+
 interface Props {
   onBack: () => void;
   onGoToTool: () => void;
 }
+
+/**
+ * FAQPage schema — helps Google render rich snippets directly in search
+ * results. The answers are intentionally short so they fit the "People also
+ * ask" blocks that Google displays.
+ */
+const GUIDE_FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Comment declarer ses cryptomonnaies en France en 2026 ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "En France, les plus-values crypto sont imposees au PFU de 30% (12,8% IR + 17,2% prelevements sociaux), majore d'une CEHR pour les hauts revenus. Il faut remplir le formulaire 2086 (detail des cessions) et reporter les montants sur la 2042-C (cases 3AN/3BN/3CN). Si la valeur totale des cessions de l'annee est inferieure a 305 EUR, la plus-value est exoneree.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quelle est la formule de calcul des plus-values crypto (Article 150 VH bis) ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "L'article 150 VH bis du CGI impose une methode de PA global (prix d'acquisition global) decremente proportionnellement a chaque cession. Formule : plus-value = prix de cession - (prix total d'acquisition x prix de cession / valeur globale du portefeuille). Ce n'est pas un FIFO par lots, contrairement a ce qu'on voit souvent.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Qu'est-ce que le formulaire 3916-bis et qui doit le remplir ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Le formulaire 3916-bis doit etre rempli par tous les residents fiscaux francais qui detiennent un compte de cryptoactifs ouvert, detenu, utilise ou clos a l'etranger. Cela inclut Binance, Kraken, Coinbase, Bitstamp et les autres exchanges non francais. L'absence de declaration est sanctionnee de 750 EUR par compte.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Les echanges crypto-crypto sont-ils imposables en France ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Jusqu'au 30 juin 2026 : non, les echanges crypto contre crypto sont neutres fiscalement. A partir du 1er juillet 2026 (ordonnance 2024-936 transposant DAC8) : oui, chaque swap devient un evenement imposable et il faut calculer une plus-value a chaque conversion. Verifiez toujours la regle applicable a l'annee concernee.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Peut-on deduire les frais de transaction des plus-values crypto ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Oui. Le BOFIP (BOI-RPPM-PVBMC-30-20) confirme que les frais d'exchange et les gas fees lies a une cession sont deductibles du prix de cession. Les frais lies a un achat augmentent le prix d'acquisition. Dans les deux cas, ils doivent etre convertis en euros au cours du jour de la transaction.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Flat tax ou bareme progressif : quoi choisir pour mes cryptos ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Par defaut, la flat tax (PFU 30% + eventuelle CEHR) s'applique. Vous pouvez opter globalement pour le bareme progressif via la case 2OP. Cette option est interessante si votre TMI est a 0% ou 11% car vous economisez sur la part IR. Elle est penalisante aux TMI superieurs a 12,8%. Elle s'applique obligatoirement a tous vos revenus de capitaux mobiliers de l'annee.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quelle est la deadline pour declarer ses cryptos en 2026 ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Les dates limites 2026 pour la declaration en ligne : 21 mai pour les departements 01 a 19, 28 mai pour les departements 20 a 54, et 4 juin pour les departements 55 a 976. La declaration papier doit etre postee avant le 20 mai 2026.",
+      },
+    },
+  ],
+};
 
 /**
  * Guide SEO : Declaration crypto France 2026
@@ -15,6 +86,13 @@ interface Props {
  * - "comment declarer ses cryptomonnaies"
  */
 export default function GuideFiscalCrypto({ onBack, onGoToTool }: Props) {
+  useDocumentMeta({
+    title: 'Declaration crypto France 2026 — Guide fiscal complet | CryptoTaxLocal',
+    description: "Comment declarer vos cryptomonnaies en France en 2026 ? PFU 31,4%, formulaire 2086, Article 150 VH bis, seuil 305 EUR, DAC8. Guide complet et gratuit mis a jour.",
+    canonical: 'https://cryptotaxlocal.com/guide-fiscal-crypto',
+  });
+  useStructuredData('faq-guide-fiscal', GUIDE_FAQ_SCHEMA);
+
   return (
     <div className="max-w-3xl mx-auto">
       <button onClick={onBack} className="text-sm text-blue-400 hover:text-blue-300 mb-6 flex items-center gap-1">

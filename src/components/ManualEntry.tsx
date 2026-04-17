@@ -57,7 +57,7 @@ export default function ManualEntry({ onAddTransactions, existingCount }: Props)
     setRows(newRows);
   };
 
-  const validate = (): boolean => {
+  const validate = useCallback((): boolean => {
     const errs: string[] = [];
     rows.forEach((row, i) => {
       if (!row.date) errs.push(`Ligne ${i + 1}: date manquante`);
@@ -69,7 +69,7 @@ export default function ManualEntry({ onAddTransactions, existingCount }: Props)
     });
     setErrors(errs);
     return errs.length === 0;
-  };
+  }, [rows]);
 
   const handleSubmit = useCallback(() => {
     if (!validate()) return;
@@ -118,7 +118,7 @@ export default function ManualEntry({ onAddTransactions, existingCount }: Props)
     });
 
     onAddTransactions(transactions);
-  }, [rows, existingCount, onAddTransactions]);
+  }, [rows, existingCount, onAddTransactions, validate]);
 
   return (
     <div className="max-w-4xl mx-auto">

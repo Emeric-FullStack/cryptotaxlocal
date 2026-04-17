@@ -72,7 +72,7 @@ export interface TaxSummary {
 
 // === Parser Types ===
 
-export type ExchangeName = 'binance' | 'kraken' | 'coinbase' | 'kucoin' | 'manual';
+export type ExchangeName = 'binance' | 'kraken' | 'coinbase' | 'kucoin' | 'revolut' | 'manual';
 
 export interface ParseResult {
   transactions: Transaction[];

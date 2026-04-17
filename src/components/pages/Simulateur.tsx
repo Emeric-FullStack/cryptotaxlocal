@@ -1,11 +1,18 @@
 import { useState, useRef, useCallback, useMemo } from 'react';
 import { calculateFlatTax, calculateProgressiveTax, formatEUR } from '../../engine/tax-rules/france';
+import { useDocumentMeta } from '../../hooks/useDocumentMeta';
 
 interface Props {
   onBack: () => void;
 }
 
 export default function Simulateur({ onBack }: Props) {
+  useDocumentMeta({
+    title: 'Simulateur plus-value crypto 2026 — PFU 31,4% vs bareme progressif | CryptoTaxLocal',
+    description: "Simulateur gratuit d'impot sur les plus-values crypto : flat tax 31,4% ou bareme progressif, seuil 305 EUR, comparaison instantanee. Zero inscription.",
+    canonical: 'https://cryptotaxlocal.com/simulateur-plus-value-crypto',
+  });
+
   const [gainAmount, setGainAmount] = useState(5000);
   const [otherIncome, setOtherIncome] = useState(25000);
   const [totalProceeds, setTotalProceeds] = useState(15000);

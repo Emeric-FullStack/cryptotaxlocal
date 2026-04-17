@@ -1,3 +1,5 @@
+import { useDocumentMeta } from '../../hooks/useDocumentMeta';
+
 interface Props {
   onBack: () => void;
   onGoToTool: () => void;
@@ -14,6 +16,12 @@ interface Props {
  * - "alternative koinly gratuite"
  */
 export default function ComparatifOutils({ onBack, onGoToTool }: Props) {
+  useDocumentMeta({
+    title: 'Koinly vs Waltio vs CryptoTaxLocal — Comparatif 2026 | CryptoTaxLocal',
+    description: "Quel outil choisir pour declarer vos cryptos en 2026 ? Comparatif de Koinly, Waltio et CryptoTaxLocal : prix, fonctionnalites, confidentialite, support France.",
+    canonical: 'https://cryptotaxlocal.com/comparatif-outils-fiscaux-crypto',
+  });
+
   return (
     <div className="max-w-3xl mx-auto">
       <button onClick={onBack} className="text-sm text-blue-400 hover:text-blue-300 mb-6 flex items-center gap-1">

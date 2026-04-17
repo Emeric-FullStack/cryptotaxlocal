@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 
 /**
  * FreshnessCheck — Alerts users when tool, tax rules, or prices may be outdated
@@ -19,10 +19,9 @@ interface Alert {
 }
 
 export default function FreshnessCheck() {
-  const [alerts, setAlerts] = useState<Alert[]>([]);
   const [dismissed, setDismissed] = useState(false);
 
-  useEffect(() => {
+  const alerts = useMemo<Alert[]>(() => {
     const issues: Alert[] = [];
     const now = new Date();
     const buildDate = new Date(BUILD_DATE_STR);
@@ -61,7 +60,7 @@ export default function FreshnessCheck() {
       });
     }
 
-    setAlerts(issues);
+    return issues;
   }, []);
 
   if (alerts.length === 0 || dismissed) return null;

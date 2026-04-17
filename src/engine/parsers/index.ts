@@ -1,11 +1,13 @@
 import { parseBinanceCSV } from './binance';
 import { parseKrakenCSV } from './kraken';
 import { parseCoinbaseCSV } from './coinbase';
+import { parseRevolutCSV } from './revolut';
 import type { ExchangeName, ParseResult } from '../../types';
 
 export { parseBinanceCSV } from './binance';
 export { parseKrakenCSV } from './kraken';
 export { parseCoinbaseCSV } from './coinbase';
+export { parseRevolutCSV } from './revolut';
 
 /**
  * Auto-detect exchange from CSV content and parse accordingly
@@ -25,14 +27,20 @@ export function autoParseCSV(csvContent: string): ParseResult & { detectedExchan
     case 'coinbase':
       result = parseCoinbaseCSV(csvContent);
       break;
-    default:
+    case 'revolut':
+      result = parseRevolutCSV(csvContent);
+      break;
+    default: {
       // Try each parser and return the one with most successful parses
       const results = [
         parseBinanceCSV(csvContent),
         parseKrakenCSV(csvContent),
         parseCoinbaseCSV(csvContent),
+        parseRevolutCSV(csvContent),
       ];
       result = results.sort((a, b) => b.transactions.length - a.transactions.length)[0];
+      break;
+    }
   }
 
   return { ...result, detectedExchange: exchange };
@@ -73,6 +81,14 @@ function detectExchange(csvContent: string): ExchangeName {
   }
   if (header.includes('coinbase')) {
     return 'coinbase';
+  }
+
+  // Revolut — crypto transactions export: Symbol + Quantity + Total Amount is distinctive
+  if (
+    (header.includes('symbol') && header.includes('quantity') && header.includes('total amount')) ||
+    header.includes('revolut')
+  ) {
+    return 'revolut';
   }
 
   return 'manual';
