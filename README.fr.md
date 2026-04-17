@@ -6,13 +6,13 @@
 
 <div align="center">
 
-<img src="public/favicon.svg" alt="CryptoTaxLocal" width="80" height="80" />
+<img src="public/og-image.png" alt="CryptoTaxLocal — Calculateur fiscal crypto 100% local" width="100%" />
 
 # CryptoTaxLocal
 
-**Calculateur fiscal crypto 100% local, gratuit, sans inscription.**
+**Le calculateur fiscal crypto open-source, gratuit et 100% local pour la France.**
 
-Vos donnees ne quittent jamais votre navigateur.
+Pas de compte. Pas d'upload. Pas de tracking. Votre CSV reste sur votre machine.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -21,7 +21,9 @@ Vos donnees ne quittent jamais votre navigateur.
 [![Cout serveur](https://img.shields.io/badge/cout_serveur-0_EUR%2Fmois-brightgreen)](#stack-technique)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-[Essayer en ligne](#) · [Signaler un bug](https://github.com/Emeric-FullStack/cryptotaxlocal/issues) · [Contribuer](CONTRIBUTING.md)
+### [→ Essayer en ligne](https://cryptotaxlocal.com)
+
+[Signaler un bug](https://github.com/Emeric-FullStack/cryptotaxlocal/issues) · [Contribuer](CONTRIBUTING.md) · [Roadmap](https://github.com/Emeric-FullStack/cryptotaxlocal/issues?q=is%3Aissue+is%3Aopen+label%3Aroadmap)
 
 </div>
 
@@ -49,6 +51,39 @@ CryptoTaxLocal fait tout ca **dans votre navigateur**. Rien ne sort de votre mac
 <tr><td><strong>Hors-ligne (PWA)</strong></td><td>Oui</td><td>Non</td><td>Non</td></tr>
 </table>
 
+## Captures d'ecran
+
+<table>
+<tr>
+<td width="33%" align="center">
+
+<img src="docs/screenshots/import.png" alt="Etape 1 — Import CSV par glisser-deposer" />
+
+**1. Import**
+Glissez votre CSV — exchange auto-detecte.
+
+</td>
+<td width="33%" align="center">
+
+<img src="docs/screenshots/review.png" alt="Etape 2 — Verification des transactions" />
+
+**2. Verification**
+Revoir les transactions, editer les prix unitaires.
+
+</td>
+<td width="33%" align="center">
+
+<img src="docs/screenshots/results.png" alt="Etape 3 — Resultats fiscaux et export PDF" />
+
+**3. Resultats**
+Decomposition exacte + aide 2086 + PDF.
+
+</td>
+</tr>
+</table>
+
+> Ces captures sont des maquettes representatives. Les vraies captures produit arrivent — PR bienvenues !
+
 ## Fonctionnalites
 
 <table>
@@ -56,7 +91,7 @@ CryptoTaxLocal fait tout ca **dans votre navigateur**. Rien ne sort de votre mac
 <td width="50%">
 
 **Import & Calcul**
-- Import CSV auto-detection (4 formats Binance, Kraken, Coinbase)
+- Import CSV auto-detection (4 formats Binance, Kraken, Coinbase, Revolut)
 - Formule francaise Article 150 VH bis (PA global, pas un simple FIFO)
 - Prix historiques via Binance API (illimite) + CoinGecko (fallback)
 - Frais deduits du prix de cession (exchange + gas fees)
@@ -135,11 +170,12 @@ Ouvrez `http://localhost:5173`, glissez votre CSV, c'est fait.
 | Binance | CSV Trade History | :white_check_mark: |
 | Kraken | CSV Trades | :white_check_mark: |
 | Coinbase | CSV Transaction History | :white_check_mark: |
+| Revolut | CSV Crypto Transactions | :white_check_mark: (beta) |
 | KuCoin | — | :construction: Prevu |
 | Bybit | — | :construction: Prevu |
-| Revolut | — | :construction: Prevu |
+| Bitpanda | — | :construction: Prevu |
 
-> Vous utilisez un exchange non supporte ? [Ouvrez une issue](https://github.com/Emeric-FullStack/cryptotaxlocal/issues) ou [contribuez un parser](CONTRIBUTING.md).
+> Vous utilisez un exchange non supporte ? [Ouvrez une demande de parser](https://github.com/Emeric-FullStack/cryptotaxlocal/issues/new?template=exchange_request.yml) ou [contribuez-en un](CONTRIBUTING.md#adding-an-exchange-parser-the-most-wanted-contribution) — un parser prend souvent moins de 2h.
 
 ## Stack technique
 
@@ -187,7 +223,13 @@ src/
 
 ## Contribuer
 
-Les contributions sont les bienvenues ! Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour les details.
+Les contributions sont les bienvenues et chaque PR raisonnable est mergee. Commencez ici :
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) — guide complet, avec une recette pas-a-pas pour ajouter un parser d'exchange
+- [GOOD_FIRST_ISSUES.md](GOOD_FIRST_ISSUES.md) — liste de taches classees par difficulte, avec pointeurs vers les bons fichiers
+- [Discussions](https://github.com/Emeric-FullStack/cryptotaxlocal/discussions) — questions et idees
+
+La contribution la plus demandee est un **nouveau parser d'exchange** (KuCoin, Bybit, Bitpanda, Crypto.com...). La plupart se font en moins de 2h avec le template fourni.
 
 <details>
 <summary><strong>Idees de contributions par difficulte</strong></summary>
@@ -250,6 +292,6 @@ Voir [SECURITY.md](SECURITY.md) pour la politique de signalement de vulnerabilit
 
 <div align="center">
 
-**[Essayer CryptoTaxLocal](#)** · Fait avec :keyboard: par [@Emeric-FullStack](https://github.com/Emeric-FullStack)
+**[Essayer CryptoTaxLocal](https://cryptotaxlocal.com)** · Fait avec :keyboard: par [@Emeric-FullStack](https://github.com/Emeric-FullStack)
 
 </div>

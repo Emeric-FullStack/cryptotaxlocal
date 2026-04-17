@@ -1,0 +1,66 @@
+name: Exchange / parser request
+description: Demander le support d'un nouvel exchange ou signaler un probleme de parsing CSV
+title: "[PARSER] <exchange> : <courte description>"
+labels: ["parser", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de vouloir ajouter un exchange ! Les parsers sont les contributions
+        les plus utiles au projet. Si vous pouvez coder un peu TypeScript, jetez
+        un oeil au guide : [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md#adding-an-exchange-parser-the-most-wanted-contribution).
+        Sinon, remplissez ce formulaire, je m'en occuperai quand j'aurai le temps.
+
+  - type: input
+    id: exchange
+    attributes:
+      label: Exchange / plateforme
+      description: Nom et URL de l'exchange (ex. Revolut, https://www.revolut.com)
+      placeholder: "Revolut — https://www.revolut.com"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: existing_support
+    attributes:
+      label: Type de demande
+      options:
+        - Nouvel exchange (aucun support actuel)
+        - Bug de parsing sur un exchange deja supporte
+        - Nouveau format CSV d'un exchange deja supporte
+    validations:
+      required: true
+
+  - type: textarea
+    id: csv_sample
+    attributes:
+      label: Echantillon CSV (anonymise)
+      description: |
+        Collez ici les 3-5 premieres lignes de votre CSV, **en retirant toutes les donnees personnelles**
+        (emails, identifiants, montants precis). Un CSV avec des montants factices mais de VRAIS entetes
+        de colonnes est parfait.
+      render: csv
+      placeholder: |
+        Date,Type,Asset,Quantity,Price EUR,Fee,Total
+        2025-01-15,BUY,BTC,0.01,40000,1.50,401.50
+    validations:
+      required: true
+
+  - type: input
+    id: export_path
+    attributes:
+      label: Comment exporter ce CSV ?
+      description: Ou cliquer dans l'interface de l'exchange pour obtenir ce fichier
+      placeholder: "Parametres > Compte > Releve > Export transactions (CSV)"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Confirmations
+      options:
+        - label: J'ai retire toutes mes donnees personnelles de l'echantillon CSV
+          required: true
+        - label: J'ai verifie qu'il n'y a pas deja une issue ouverte pour cet exchange
+          required: true

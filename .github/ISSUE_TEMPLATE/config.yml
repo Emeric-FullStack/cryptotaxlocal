@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question ou discussion generale
+    url: https://github.com/Emeric-FullStack/cryptotaxlocal/discussions
+    about: Pour toute question d'usage, idee d'amelioration ou discussion — ouvrez une Discussion plutot qu'une issue.
+  - name: Vulnerabilite de securite
+    url: https://github.com/Emeric-FullStack/cryptotaxlocal/blob/main/SECURITY.md
+    about: "NE PAS ouvrir une issue publique pour un probleme de securite. Voir SECURITY.md pour le processus de divulgation privee."
+  - name: Aide fiscale personnelle
+    url: https://www.impots.gouv.fr/contacts
+    about: Nous ne pouvons pas vous aider sur votre situation fiscale personnelle. Contactez votre centre des impots ou un expert-comptable.
